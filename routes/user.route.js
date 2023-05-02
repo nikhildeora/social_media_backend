@@ -15,6 +15,7 @@ UserRoute.get("/:id/friends", async(req,res)=> {
     let ID = req.params.id;
     try {
         let findFreinds = await UserModel.find({_id:ID}).populate("friends");
+        // .populate(["friends","friendRequests"])
            if(findFreinds[0].friends.length===0){
                    res.status(200).send("Freinds list is Empty")
                }else{
